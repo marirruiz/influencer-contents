@@ -69,3 +69,4 @@
 }
 .sidebar{position:sticky;top:0;height:100vh;align-self:flex-start}
 .dashboard-filter{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 18px}.dashboard-filter label{font-size:12px;color:#77717f;font-weight:700}.dashboard-filter select{height:40px;padding:0 12px;border:1px solid #ded6ec;border-radius:8px;background:#fff;color:#302b39;font-weight:600}
+
