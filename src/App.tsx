@@ -16,7 +16,8 @@ const money=(v:number)=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL
 const defaultInfo:BrandInfo={type:'Permuta',cash:0,stories:3,reels:1,paymentDate:'',commission:0,coupon:'',paymentStatus:'Não se aplica'}
 const readStorage = <T,>(key:string, fallback:T):T => {
  try {
-  const value = localStorage.getItem(key)
+  const legacyKey = key.replace('-imported-2026-11','')
+  const value = localStorage.getItem(key) ?? localStorage.getItem(legacyKey)
   return value ? JSON.parse(value) as T : fallback
  } catch {
   localStorage.removeItem(key)
