@@ -18,7 +18,14 @@ const readStorage = <T,>(key:string, fallback:T):T => {
  try {
   const legacyKey = key.replace('-imported-2026-11','')
   const value = localStorage.getItem(key) ?? localStorage.getItem(legacyKey)
-  return value ? JSON.parse(value) as T : fallback
+  if (!value) return fallback
+  const stored = JSON.parse(value) as T
+  if (Array.isArray(fallback) && Array.isArray(stored)) {
+   const storedById = new Map(stored.map((item:any)=>[item.id,item]))
+   return [...fallback.map((item:any)=>storedById.get(item.id)||item), ...stored.filter((item:any)=>!fallback.some((base:any)=>base.id===item.id))] as T
+  }
+  if (typeof fallback === 'object' && typeof stored === 'object' && fallback && stored) return {...fallback,...stored}
+  return stored
  } catch {
   localStorage.removeItem(key)
   return fallback
