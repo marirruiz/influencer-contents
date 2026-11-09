@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"name":"ContentFlow","short_name":"ContentFlow","start_url":"/","display":"standalone","theme_color":"#4e367c","background_color":"#f8f7fb","icons":[]}
+=======
+{"name":"ContentFlow","short_name":"ContentFlow","start_url":"/influencer-contents/","scope":"/influencer-contents/","display":"standalone","theme_color":"#4e367c","background_color":"#f8f7fb","icons":[]}
+>>>>>>> 0251709 (feat: adiciona CRM e favicon)
